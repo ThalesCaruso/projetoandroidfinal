@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">ProjetoLogin</string>
+    <!--  ACTIVITYS -->
+    <string name="TituloLoginActivity">LOGIN</string>
+    <string name="TituloCadastroActivity">CADASTRO</string>
+    <string name="TituloPerfilActivity">PERFIL USUARIO</string>
+    <!---->
+    <string name="TituloListPosts">POSTS</string>
+    <string name="TituloListComments">LISTA DE COMMENTS</string>
+    <string name="TituloListAlbuns">LISTA DE ALBUNS</string>
+    <string name="TituloListPhotos">LISTA DE PHOTOS</string>
+    <string name="TituloListTodos">LISTA DE TODOS</string>
+    <string name="TituloListUsers">LISTA DE USERS</string>
+    <!-- BUTTONS -->
+    <string name="btnEntrar">LOGAR</string>
+    <string name="btnCadastro">CADASTRAR</string>
+    <string name="btnListPosts">POSTS</string>
+    <string name="btnListComments">COMMENTS</string>
+    <string name="btnListAlbuns">ALBUNS</string>
+    <string name="btnListPhotos">PHOTOS</string>
+    <string name="btnListTodos">TODOS</string>
+    <string name="btnListUsers">USERS</string>
+    <!-- TEXTVIEWS -->
+    <string name="tvIdUserPerfil">ID_USER</string>
+    <string name="tvNomeUserPerfil">NOME_USUARIO</string>
+    <string name="tvLoginUserPerfil">LOGIN_USER</string>
+
+    <string name="tvIdPostList">ID_POSTS</string>
+    <string name="tvTituloPost">TITULO_POST</string>
+    <string name="tvBodyPost">BODY_POST</string>
+    <!-- HINTS -->
+    <string name="nome">USUARIO</string>
+    <string name="login">LOGIN</string>
+    <string name="senha">SENHA</string>
+</resources>

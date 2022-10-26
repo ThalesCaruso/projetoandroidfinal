@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Projetoandroidfinal"
+        tools:targetApi="31">
+        <activity
+            android:name=".view.UML.uniritter.view.UserActivity"
+            android:label="@string/btnListUsers"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".view.UML.uniritter.view.TodosActivity"
+            android:label="@string/btnListTodos"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".view.UML.uniritter.view.PhotoActivity"
+            android:label="@string/btnListPhotos"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".view.UML.uniritter.view.CommentActivity"
+            android:label="@string/btnListComments"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".view.UML.uniritter.view.AlbumActivity"
+            android:label="@string/btnListAlbuns"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".view.UML.uniritter.view.PostsActivity"
+            android:label="@string/btnListPosts"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".view.UML.uniritter.view.CadastroActivity"
+            android:exported="false"
+            android:label="@string/TituloCadastroActivity" />
+        <activity
+            android:name=".view.UML.uniritter.view.PerfilUserActivity"
+            android:exported="false"
+            android:label="@string/TituloPerfilActivity" />
+        <activity
+            android:name=".view.UML.uniritter.view.LoginActivity"
+            android:exported="false"
+            android:label="@string/TituloLoginActivity" />
+        <activity
+            android:name=".view.UML.uniritter.view.MainActivity"
+            android:exported="true"
+            android:label="Tela Inicial">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

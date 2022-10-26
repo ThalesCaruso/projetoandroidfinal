@@ -1,0 +1,53 @@
+@startuml Relacionamento das APIs
+
+User --> Posts
+User --> Albuns
+User --> Todos
+Posts --> Comments
+Albuns --> Photos
+
+
+class Posts{
+    - userID
+    - id
+    - titulo
+    - body
+}
+
+class Comments{
+    - postID
+    - id
+    - nome
+    - email
+    - body
+}
+
+class Albuns{
+    - userID
+    - id
+    - titulo
+}
+
+class Photos{
+    - albumID
+    - id
+    - titulo
+    - url
+    - thumbnailURL
+}
+
+class Todos{
+    - userID
+    - id
+    - titulo
+    - completed
+}
+
+class User{
+    - id
+    - nome
+    - login
+    - senha
+}
+
+@enduml
