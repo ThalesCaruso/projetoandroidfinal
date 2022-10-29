@@ -12,7 +12,7 @@ import com.example.projetoandroidfinal.R;
 import com.example.projetoandroidfinal.view.UML.uniritter.model.User;
 import com.example.projetoandroidfinal.view.UML.uniritter.presenter.PerfilPresenter;
 import com.example.projetoandroidfinal.view.UML.uniritter.presenter.PresenterContract;
-import com.example.projetoandroidfinal.view.UML.uniritter.repository.UserDataBase;
+import com.example.projetoandroidfinal.view.UML.uniritter.repository.UserDB;
 
 public class PerfilUserActivity extends AppCompatActivity implements PresenterContract.view  {
     private static final String tagLog = "PerfilUserActivity";
@@ -46,11 +46,11 @@ public class PerfilUserActivity extends AppCompatActivity implements PresenterCo
     public Activity getActivity() { return this; }
 
     public void logUsers() {
-        for (int i = 0; i< UserDataBase.getUsers().size(); i++){
+        for (int i = 0; i< UserDB.getUsers().size(); i++){
             Log.d("users",
-                    "ID: "+Integer.toString(UserDataBase.getUsers().get(i).getId())+
-                            " | Nome: "+UserDataBase.getUsers().get(i).getNome().toString()+
-                            " | Login: "+UserDataBase.getUsers().get(i).getLogin().toString()
+                    "ID: "+Integer.toString(UserDB.getUsers().get(i).getId())+
+                            " | Nome: "+ UserDB.getUsers().get(i).getNome().toString()+
+                            " | Login: "+ UserDB.getUsers().get(i).getLogin().toString()
             );
         }
     }

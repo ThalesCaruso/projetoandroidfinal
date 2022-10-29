@@ -15,13 +15,13 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserDataBase implements Response.Listener<JSONArray>, Response.ErrorListener{
-    private static final String tagLog = "UserDataBase";
+public class UserDB implements Response.Listener<JSONArray>, Response.ErrorListener{
+    private static final String tagLog = "UserDB";
 
     private static List<User> users;
-    private static UserDataBase instance = null;
+    private static UserDB instance = null;
 
-    private UserDataBase(Context context){
+    private UserDB(Context context){
         super();
         if (users == null) {
             users = new ArrayList<>();
@@ -37,9 +37,9 @@ public class UserDataBase implements Response.Listener<JSONArray>, Response.Erro
 
     public static List<User> getUsers(){ return users; }
 
-    public static UserDataBase getInstance(Context context) {
+    public static UserDB getInstance(Context context) {
 
-        instance = new UserDataBase(context);
+        instance = new UserDB(context);
 
         return instance;
     }

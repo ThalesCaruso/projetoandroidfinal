@@ -8,58 +8,57 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.projetoandroidfinal.view.UML.uniritter.model.Albuns;
+import com.example.projetoandroidfinal.view.UML.uniritter.model.Photos;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AlbunsDataBase implements Response.Listener<JSONArray>, Response.ErrorListener {
-    private static final String tagLog = "AlbunsDataBase";
+public class PhotoDB implements Response.Listener<JSONArray>, Response.ErrorListener {
+    private static final String tagLog = "PhotoDB";
 
-    private static List<Albuns> albuns;
-    private static AlbunsDataBase instance = null;
+    private static List<Photos> photos;
+    private static PhotoDB instance = null;
 
-    private AlbunsDataBase(Context context){
+    private PhotoDB(Context context){
         super();
-        if (albuns == null){
-            albuns = new ArrayList<>();
+        if(photos == null){
+            photos = new ArrayList<>();
             RequestQueue queue = Volley.newRequestQueue(context);
-            String url = "https://jsonplaceholder.typicode.com/albums";
+            String url = "https://jsonplaceholder.typicode.com/photos";
             JsonArrayRequest jaRequest = new JsonArrayRequest(
                     Request.Method.GET, url,
-                    null, this, this );
+                    null, this, this);
             queue.add(jaRequest);
         }
     }
 
-    public static List<Albuns> getAlbuns() { return albuns; }
+    public static List<Photos> getPhotos() { return photos; }
 
-    public static  AlbunsDataBase getInstance(Context context){
-        instance = new AlbunsDataBase(context);
+    public static PhotoDB getInstance(Context context){
+        instance = new PhotoDB(context);
         return instance;
     }
 
     @Override
-    public void onErrorResponse(VolleyError error) {
-        Log.e(tagLog, tagLog+"/"+error.getMessage());
-    }
+    public void onErrorResponse(VolleyError error) { Log.e(tagLog, tagLog+"/"+error.getMessage()); }
 
     @Override
     public void onResponse(JSONArray response) {
         for (int i=0;i< response.length();i++){
             try{
                 JSONObject json = response.getJSONObject(i);
-                albuns.add( new Albuns(
-                        json.getInt("userId"),
+                photos.add( new Photos(
+                        json.getInt("albumId"),
                         json.getInt("id"),
-                        json.getString("title")
-                ));
+                        json.getString("title"),
+                        json.getString("url"),
+                        json.getString("thumbnailUrl")
+                ) );
             }catch (JSONException e){
                 e.printStackTrace();
             }
         }
     }
 }
-

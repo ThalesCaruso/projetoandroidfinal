@@ -8,52 +8,57 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.projetoandroidfinal.view.UML.uniritter.model.Todos;
+import com.example.projetoandroidfinal.view.UML.uniritter.model.Posts;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TodosDataBase implements Response.Listener<JSONArray>, Response.ErrorListener {
-    private static final String tagLog = "TodosDataBase";
+public class PostDB implements Response.Listener<JSONArray>, Response.ErrorListener {
+    private static final String tagLog = "PostDB";
 
-    private static List<Todos> todos;
-    private static TodosDataBase instance = null;
+    private static List<Posts> posts;
+    private static PostDB instance = null;
 
-    private TodosDataBase(Context context){
+    private PostDB(Context context){
         super();
-        if (todos == null){
-            todos = new ArrayList<>();
+        if (posts == null){
+            posts = new ArrayList<>();
             RequestQueue queue = Volley.newRequestQueue(context);
-            String url = "https://jsonplaceholder.typicode.com/todos";
+            String url = "https://jsonplaceholder.typicode.com/posts";
             JsonArrayRequest jaRequest = new JsonArrayRequest(
                     Request.Method.GET, url,
-                    null, this, this );
+                    null, this, this);
             queue.add(jaRequest);
+
         }
     }
 
-    public static List<Todos> getTodos(){ return todos; }
+    public static List<Posts> getPosts() { return posts; }
 
-    public static TodosDataBase getInstance(Context context){
-        instance = new TodosDataBase(context);
+    public static PostDB getInstance(Context context){
+        instance = new PostDB(context);
         return instance;
     }
 
+
     @Override
-    public void onErrorResponse(VolleyError error) { Log.e(tagLog, tagLog+"/"+error.getMessage()); }
+    public void onErrorResponse(VolleyError error) {
+        Log.e(tagLog, tagLog+"/"+error.getMessage());
+    }
+
 
     @Override
     public void onResponse(JSONArray response) {
         for (int i=0;i< response.length();i++){
             try{
                 JSONObject json = response.getJSONObject(i);
-                todos.add( new Todos(
+                posts.add( new Posts(
                         json.getInt("userId"),
                         json.getInt("id"),
                         json.getString("title"),
-                        json.getBoolean("completed")
+                        json.getString("body")
                 ) );
             }catch (JSONException e){
                 e.printStackTrace();
@@ -61,4 +66,3 @@ public class TodosDataBase implements Response.Listener<JSONArray>, Response.Err
         }
     }
 }
-

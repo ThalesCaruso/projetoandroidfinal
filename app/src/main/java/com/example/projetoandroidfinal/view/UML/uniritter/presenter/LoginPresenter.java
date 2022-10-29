@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.util.Log;
 
 import com.example.projetoandroidfinal.view.UML.uniritter.model.User;
-import com.example.projetoandroidfinal.view.UML.uniritter.repository.UserDataBase;
+import com.example.projetoandroidfinal.view.UML.uniritter.repository.UserDB;
 import com.example.projetoandroidfinal.view.UML.uniritter.view.CadastroActivity;
 import com.example.projetoandroidfinal.view.UML.uniritter.view.PerfilUserActivity;
 
@@ -22,10 +22,10 @@ public class LoginPresenter implements PresenterContract.presenterLogin{
         Log.d(tagLog, tagLog+"/verificaUser");
 
         String sLogin, sSenha;
-        for (int i = 0; i< UserDataBase.getUsers().size(); i++){
-            User user = UserDataBase.getUsers().get(i);
-            sLogin = UserDataBase.getUsers().get(i).getLogin();
-            sSenha = UserDataBase.getUsers().get(i).getSenha();
+        for (int i = 0; i< UserDB.getUsers().size(); i++){
+            User user = UserDB.getUsers().get(i);
+            sLogin = UserDB.getUsers().get(i).getLogin();
+            sSenha = UserDB.getUsers().get(i).getSenha();
 
             if (sLogin.equals(login) && sSenha.equals(senha)){
                 this.usuarioValido(user);

@@ -2,7 +2,7 @@ package com.example.projetoandroidfinal.view.UML.uniritter.presenter;
 
 import android.content.Intent;
 import com.example.projetoandroidfinal.view.UML.uniritter.model.User;
-import com.example.projetoandroidfinal.view.UML.uniritter.repository.UserDataBase;
+import com.example.projetoandroidfinal.view.UML.uniritter.repository.UserDB;
 import com.example.projetoandroidfinal.view.UML.uniritter.view.LoginActivity;
 import java.util.List;
 
@@ -22,7 +22,7 @@ public class CadastroPresenter implements PresenterContract.presenterCadastro {
 
     @Override
     public void criarUsuario(String nome, String login, String senha) {
-        List<User> users = UserDataBase.getUsers();
+        List<User> users = UserDB.getUsers();
         users.add(new User(users.size()+1, nome, login, senha));
         this.telaLogin();
         view.message("USUARIO CRIADO");

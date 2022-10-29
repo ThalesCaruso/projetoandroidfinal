@@ -8,61 +8,58 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.projetoandroidfinal.view.UML.uniritter.model.Posts;
+import com.example.projetoandroidfinal.view.UML.uniritter.model.Albuns;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PostsDataBase implements Response.Listener<JSONArray>, Response.ErrorListener {
-    private static final String tagLog = "PostsDataBase";
+public class AlbumDB implements Response.Listener<JSONArray>, Response.ErrorListener {
+    private static final String tagLog = "AlbumDB";
 
-    private static List<Posts> posts;
-    private static PostsDataBase instance = null;
+    private static List<Albuns> albuns;
+    private static AlbumDB instance = null;
 
-    private PostsDataBase(Context context){
+    private AlbumDB(Context context){
         super();
-        if (posts == null){
-            posts = new ArrayList<>();
+        if (albuns == null){
+            albuns = new ArrayList<>();
             RequestQueue queue = Volley.newRequestQueue(context);
-            String url = "https://jsonplaceholder.typicode.com/posts";
+            String url = "https://jsonplaceholder.typicode.com/albums";
             JsonArrayRequest jaRequest = new JsonArrayRequest(
                     Request.Method.GET, url,
-                    null, this, this);
+                    null, this, this );
             queue.add(jaRequest);
-
         }
     }
 
-    public static List<Posts> getPosts() { return posts; }
+    public static List<Albuns> getAlbuns() { return albuns; }
 
-    public static PostsDataBase getInstance(Context context){
-        instance = new PostsDataBase(context);
+    public static AlbumDB getInstance(Context context){
+        instance = new AlbumDB(context);
         return instance;
     }
-
 
     @Override
     public void onErrorResponse(VolleyError error) {
         Log.e(tagLog, tagLog+"/"+error.getMessage());
     }
 
-
     @Override
     public void onResponse(JSONArray response) {
         for (int i=0;i< response.length();i++){
             try{
                 JSONObject json = response.getJSONObject(i);
-                posts.add( new Posts(
+                albuns.add( new Albuns(
                         json.getInt("userId"),
                         json.getInt("id"),
-                        json.getString("title"),
-                        json.getString("body")
-                ) );
+                        json.getString("title")
+                ));
             }catch (JSONException e){
                 e.printStackTrace();
             }
         }
     }
 }
+

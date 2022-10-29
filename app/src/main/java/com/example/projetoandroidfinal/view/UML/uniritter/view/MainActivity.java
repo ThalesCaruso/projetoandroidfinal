@@ -10,12 +10,12 @@ import android.widget.Button;
 import com.example.projetoandroidfinal.R;
 import com.example.projetoandroidfinal.view.UML.uniritter.presenter.MainPresenter;
 import com.example.projetoandroidfinal.view.UML.uniritter.presenter.PresenterContract;
-import com.example.projetoandroidfinal.view.UML.uniritter.repository.AlbunsDataBase;
-import com.example.projetoandroidfinal.view.UML.uniritter.repository.CommentsDataBase;
-import com.example.projetoandroidfinal.view.UML.uniritter.repository.PhotosDataBase;
-import com.example.projetoandroidfinal.view.UML.uniritter.repository.PostsDataBase;
-import com.example.projetoandroidfinal.view.UML.uniritter.repository.TodosDataBase;
-import com.example.projetoandroidfinal.view.UML.uniritter.repository.UserDataBase;
+import com.example.projetoandroidfinal.view.UML.uniritter.repository.AlbumDB;
+import com.example.projetoandroidfinal.view.UML.uniritter.repository.CommentDB;
+import com.example.projetoandroidfinal.view.UML.uniritter.repository.PhotoDB;
+import com.example.projetoandroidfinal.view.UML.uniritter.repository.PostDB;
+import com.example.projetoandroidfinal.view.UML.uniritter.repository.TodosDB;
+import com.example.projetoandroidfinal.view.UML.uniritter.repository.UserDB;
 
 public class MainActivity extends AppCompatActivity implements PresenterContract.view {
     private static final String tagLog = "MainActivity";
@@ -26,12 +26,12 @@ public class MainActivity extends AppCompatActivity implements PresenterContract
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.d(tagLog, tagLog+"/onCreate");
-        PostsDataBase.getInstance(this);
-        CommentsDataBase.getInstance(this);
-        AlbunsDataBase.getInstance(this);
-        PhotosDataBase.getInstance(this);
-        TodosDataBase.getInstance(this);
-        UserDataBase.getInstance(this);
+        PostDB.getInstance(this);
+        CommentDB.getInstance(this);
+        AlbumDB.getInstance(this);
+        PhotoDB.getInstance(this);
+        TodosDB.getInstance(this);
+        UserDB.getInstance(this);
         this.presenterMain = new MainPresenter(this);
 
     }

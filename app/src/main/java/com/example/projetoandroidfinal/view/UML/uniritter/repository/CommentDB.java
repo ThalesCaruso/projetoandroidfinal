@@ -15,14 +15,14 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CommentsDataBase implements Response.Listener<JSONArray>, Response.ErrorListener {
-    private static final String tagLog = "CommentsDataBase";
+public class CommentDB implements Response.Listener<JSONArray>, Response.ErrorListener {
+    private static final String tagLog = "CommentDB";
 
     private static List<Comments> comments;
-    private static CommentsDataBase instance = null;
+    private static CommentDB instance = null;
 
 
-    private CommentsDataBase(Context context){
+    private CommentDB(Context context){
         super();
         if (comments == null){
             comments = new ArrayList<>();
@@ -38,8 +38,8 @@ public class CommentsDataBase implements Response.Listener<JSONArray>, Response.
 
     public static List<Comments> getComments() { return comments; }
 
-    public static CommentsDataBase getInstance(Context context){
-        instance = new CommentsDataBase(context);
+    public static CommentDB getInstance(Context context){
+        instance = new CommentDB(context);
         return instance;
     }
 

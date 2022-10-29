@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.projetoandroidfinal.R;
 import com.example.projetoandroidfinal.view.UML.uniritter.presenter.LoginPresenter;
 import com.example.projetoandroidfinal.view.UML.uniritter.presenter.PresenterContract;
-import com.example.projetoandroidfinal.view.UML.uniritter.repository.UserDataBase;
+import com.example.projetoandroidfinal.view.UML.uniritter.repository.UserDB;
 
 public class LoginActivity extends AppCompatActivity implements PresenterContract.view {
     private static final String tagLog = "LoginActivity";
@@ -64,11 +64,11 @@ public class LoginActivity extends AppCompatActivity implements PresenterContrac
 
 
     public void logUsers() {
-        for (int i = 0; i< UserDataBase.getUsers().size(); i++){
+        for (int i = 0; i< UserDB.getUsers().size(); i++){
             Log.d("users",
-                    "ID: "+Integer.toString(UserDataBase.getUsers().get(i).getId())+
-                            " | Nome: "+UserDataBase.getUsers().get(i).getNome().toString()+
-                            " | Login: "+UserDataBase.getUsers().get(i).getLogin().toString()
+                    "ID: "+Integer.toString(UserDB.getUsers().get(i).getId())+
+                            " | Nome: "+ UserDB.getUsers().get(i).getNome().toString()+
+                            " | Login: "+ UserDB.getUsers().get(i).getLogin().toString()
             );
         }
     }

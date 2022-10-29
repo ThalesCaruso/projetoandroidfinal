@@ -8,36 +8,36 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.projetoandroidfinal.view.UML.uniritter.model.Photos;
+import com.example.projetoandroidfinal.view.UML.uniritter.model.Todos;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PhotosDataBase implements Response.Listener<JSONArray>, Response.ErrorListener {
-    private static final String tagLog = "PhotosDataBase";
+public class TodosDB implements Response.Listener<JSONArray>, Response.ErrorListener {
+    private static final String tagLog = "TodosDB";
 
-    private static List<Photos> photos;
-    private static PhotosDataBase instance = null;
+    private static List<Todos> todos;
+    private static TodosDB instance = null;
 
-    private PhotosDataBase(Context context){
+    private TodosDB(Context context){
         super();
-        if(photos == null){
-            photos = new ArrayList<>();
+        if (todos == null){
+            todos = new ArrayList<>();
             RequestQueue queue = Volley.newRequestQueue(context);
-            String url = "https://jsonplaceholder.typicode.com/photos";
+            String url = "https://jsonplaceholder.typicode.com/todos";
             JsonArrayRequest jaRequest = new JsonArrayRequest(
                     Request.Method.GET, url,
-                    null, this, this);
+                    null, this, this );
             queue.add(jaRequest);
         }
     }
 
-    public static List<Photos> getPhotos() { return photos; }
+    public static List<Todos> getTodos(){ return todos; }
 
-    public static PhotosDataBase getInstance(Context context){
-        instance = new PhotosDataBase(context);
+    public static TodosDB getInstance(Context context){
+        instance = new TodosDB(context);
         return instance;
     }
 
@@ -49,12 +49,11 @@ public class PhotosDataBase implements Response.Listener<JSONArray>, Response.Er
         for (int i=0;i< response.length();i++){
             try{
                 JSONObject json = response.getJSONObject(i);
-                photos.add( new Photos(
-                        json.getInt("albumId"),
+                todos.add( new Todos(
+                        json.getInt("userId"),
                         json.getInt("id"),
                         json.getString("title"),
-                        json.getString("url"),
-                        json.getString("thumbnailUrl")
+                        json.getBoolean("completed")
                 ) );
             }catch (JSONException e){
                 e.printStackTrace();
@@ -62,3 +61,4 @@ public class PhotosDataBase implements Response.Listener<JSONArray>, Response.Er
         }
     }
 }
+
