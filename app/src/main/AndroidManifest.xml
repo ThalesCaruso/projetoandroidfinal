@@ -15,49 +15,49 @@
         android:theme="@style/Theme.Projetoandroidfinal"
         tools:targetApi="31">
         <activity
-            android:name=".view.UML.uniritter.view.UserActivity"
+            android:name=".view.UML.uniritter.VIEWS.UserActivity"
             android:label="@string/btnListUsers"
             android:exported="false">
         </activity>
         <activity
-            android:name=".view.UML.uniritter.view.TodosActivity"
+            android:name=".view.UML.uniritter.VIEWS.TodosActivity"
             android:label="@string/btnListTodos"
             android:exported="false">
         </activity>
         <activity
-            android:name=".view.UML.uniritter.view.PhotoActivity"
+            android:name=".view.UML.uniritter.VIEWS.PhotoActivity"
             android:label="@string/btnListPhotos"
             android:exported="false">
         </activity>
         <activity
-            android:name=".view.UML.uniritter.view.CommentActivity"
+            android:name=".view.UML.uniritter.VIEWS.CommentActivity"
             android:label="@string/btnListComments"
             android:exported="false">
         </activity>
         <activity
-            android:name=".view.UML.uniritter.view.AlbumActivity"
+            android:name=".view.UML.uniritter.VIEWS.AlbumActivity"
             android:label="@string/btnListAlbuns"
             android:exported="false">
         </activity>
         <activity
-            android:name=".view.UML.uniritter.view.PostsActivity"
+            android:name=".view.UML.uniritter.VIEWS.PostsActivity"
             android:label="@string/btnListPosts"
             android:exported="false">
         </activity>
         <activity
-            android:name=".view.UML.uniritter.view.CadastroActivity"
+            android:name=".view.UML.uniritter.VIEWS.CadastroActivity"
             android:exported="false"
             android:label="@string/TituloCadastroActivity" />
         <activity
-            android:name=".view.UML.uniritter.view.PerfilUserActivity"
+            android:name=".view.UML.uniritter.VIEWS.PerfilUserActivity"
             android:exported="false"
             android:label="@string/TituloPerfilActivity" />
         <activity
-            android:name=".view.UML.uniritter.view.LoginActivity"
+            android:name=".view.UML.uniritter.VIEWS.LoginActivity"
             android:exported="false"
             android:label="@string/TituloLoginActivity" />
         <activity
-            android:name=".view.UML.uniritter.view.MainActivity"
+            android:name=".view.UML.uniritter.VIEWS.MainActivity"
             android:exported="true"
             android:label="Tela Inicial">
             <intent-filter>
